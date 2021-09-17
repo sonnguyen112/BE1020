@@ -26,8 +26,8 @@ class IndexController {
                 var displayed_name = req.body["displayed_name"];
                 var password = req.body["password"];
                 //hash password
-                var salt = bcryptjs_1.default.genSaltSync(10);
-                var hash = bcryptjs_1.default.hashSync(password, salt);
+                var salt = yield bcryptjs_1.default.genSalt(10);
+                var hash = yield bcryptjs_1.default.hash(password, salt);
                 var data = {
                     "username": username,
                     "displayed_name": displayed_name,
@@ -45,7 +45,7 @@ class IndexController {
                     "hashed_password": x["password"]
                 });
             }
-            res.json({
+            return res.json({
                 "error": 0,
                 "data": ouput_list
             });

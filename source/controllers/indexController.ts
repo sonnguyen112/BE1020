@@ -1,6 +1,7 @@
 import express from "express"
 import bscrypt from "bcryptjs"
 import {connection} from "../config/db"
+
 class IndexController{
     index(req:express.Request, res:express.Response){
         return res.json({"timestamp" : Date.now()})
